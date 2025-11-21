@@ -25,7 +25,7 @@ const getProjects = async (req , res)=>{
 		res.status(200).json({message:"success" , project})
 	}catch(err){
 
-		res.status(500).json({error:"error while get all projects"})
+		res.status(500).json({error:"00000000000error while get all projects"})
 	}
 }
 
