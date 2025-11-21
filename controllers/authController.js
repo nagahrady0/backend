@@ -63,20 +63,21 @@ const login = async (req , res)=>{
 		
 
 		
-		res.cookie('accessToken', accessToken, {
-		  httpOnly: true,
-		  secure: false,       // because no HTTPS locally
-		  sameSite: 'Lax',     // 'Lax' or 'Strict' works fine for localhost
-		  maxAge: 15*60*1000
-		});
-		
-		
-		res.cookie('refreshToken', refreshToken, {
-		  httpOnly: true,
-		  secure: false,       // because no HTTPS locally
-		  sameSite: 'Lax',     // 'Lax' or 'Strict' works fine for localhost
-		  maxAge: 55*60*1000
-		});
+res.cookie('accessToken', accessToken, {
+  httpOnly: true,
+  secure: true,          // ALWAYS true in production
+  sameSite: 'Strict',    // Best protection for auth cookies
+  path: '/',             // Required for Vercel
+  maxAge: 15 * 60 * 1000
+});
+
+res.cookie('refreshToken', refreshToken, {
+  httpOnly: true,
+  secure: true,          // ALWAYS true in production
+  sameSite: 'Strict',
+  path: '/',             // Required for Vercel
+  maxAge: 55 * 60 * 1000
+});
 
 
 		
