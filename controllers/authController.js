@@ -68,7 +68,8 @@ res.cookie('accessToken', accessToken, {
   secure: true,          // ALWAYS true in production
   sameSite: 'None',    // Best protection for auth cookies
   path: '/',             // Required for Vercel
-  maxAge: 15 * 60 * 1000
+  maxAge: 15 * 60 * 1000,
+	 domain: 'localhost' // أضف ده
 });
 
 res.cookie('refreshToken', refreshToken, {
@@ -76,7 +77,8 @@ res.cookie('refreshToken', refreshToken, {
   secure: true,          // ALWAYS true in production
   sameSite: 'None',
   path: '/',             // Required for Vercel
-  maxAge: 55 * 60 * 1000
+  maxAge: 55 * 60 * 1000,
+	 domain: 'localhost' // أضف ده
 });
 
 
